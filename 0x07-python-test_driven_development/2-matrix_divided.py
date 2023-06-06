@@ -13,7 +13,7 @@ def matrix_divided(matrix, div):
         Typerror: if matrix is not list of list
         Typeerror: if matrix is not regular
         Typeerror: if matrix contain anthing other than int & float
-        Typeerror: if div is not a number 
+        Typeerror: if div is not a number
         ZeroDivisionError: if div is 0
 
     Returns:

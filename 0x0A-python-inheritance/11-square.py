@@ -21,14 +21,14 @@ class Rectangle(BaseGeometry):
     """Rectangle class inherit from base geometry"""
 
     def __init__(self, width, height):
-        """a constructor class for rectangle"""
+        """instantiates a rectangle"""
         super().integer_validator("width", width)
         super().integer_validator("height", height)
         self.__width = width
         self.__height = height
 
     def area(self):
-        """calculate the area"""
+        """calculates the area"""
         return (self.__width * self.__height)
 
     def __str__(self):
@@ -37,10 +37,10 @@ class Rectangle(BaseGeometry):
 
 
 class Square(Rectangle):
-    """the square modulo"""
+    """the square module"""
 
     def __init__(self, size):
-        """constructor for square"""
+        """intsantiaates a square"""
         self.integer_validator('size', size)
         super().__init__(size, size)
         self.__size = size

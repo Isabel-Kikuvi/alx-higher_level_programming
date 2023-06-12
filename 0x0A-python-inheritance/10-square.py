@@ -34,3 +34,13 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """declaring the print"""
         return ("[Rectangle] {}/{}".format(self.__width, self.__height))
+
+
+class Square(Rectangle):
+    """the square modulo"""
+
+    def __init__(self, size):
+        """constructor for square"""
+        self.integer_validator('size', size)
+        super().__init__(size, size)
+        self.__size = size

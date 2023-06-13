@@ -17,6 +17,7 @@ class Student:
 
         new_dict = {}
         for a in attrs:
-            new_dict[a] = self.__dict__[a]
+            try:
+                new_dict[a] = self.__dict__[a]
 
         return new_dict

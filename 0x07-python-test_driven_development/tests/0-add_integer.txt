@@ -62,3 +62,15 @@ a TypeError
     >>> add_integer(7, None)
     Traceback (most recent call last):
     TypeError: b must be an integer
+
+Checking for passed NaN:
+	 >>> add_integer(1, float('nan'))
+	 Traceback (most recent call last):
+	 ...
+	 ValueError: cannot convert float NaN to integer
+
+Checking for passed inf:
+	 >>> add_integer(1, float('inf'))
+	 Traceback (most recent call last):
+	 ...
+	 OverflowError: cannot convert float infinity to integer

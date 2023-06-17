@@ -5,14 +5,43 @@ Using ``BaseGeometry``
 -------------------
 
 Checking for proper integer:
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    >>> b = BaseGeometry()
-    >>> b.integer_validator("my_int", 12)
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    	>>> b = BaseGeometry()
+    	>>> b.integer_validator("my_int", 12)
 
 Checking if the value is not int:
-    >>> b.integer_validator("my_int", 'one')
-    Traceback (most recent call last):
-    TypeError: my_int must be an integer
+	>>> b.integer_validator("my_int", 'one')
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+
+	>>> b.integer_validator("my_int", True)
+	Traceback (most recent call last):
+	...
+	TypeError: my_int must be an integer
+	
+        >>> b.integer_validator("my_int", 1.5)
+        Traceback (most recent call last):
+        TypeError: my_int must be an integer
+
+	>>> b.integer_validator("my_int", complex(1, 1))
+        Traceback (most recent call last):
+        TypeError: my_int must be an integer
+
+	>>> b.integer_validator("my_int", [1, 2, 3])
+	Traceback (most recent call last):
+	TypeError: my_int must be an integer
+	  
+	>>> b.integer_validator("my_int", {"key": "value"})
+        Traceback (most recent call last):
+	TypeError: my_int must be an integer
+	  
+	>>> b.integer_validator("my_int", {"hello", "world"})
+        Traceback (most recent call last):
+	TypeError: my_int must be an integer
+	  
+	>>> b.integer_validator("my_int", frozenset(["hello", "world"]))
+        Traceback (most recent call last):
+	TypeError: my_int must be an integer
 
 Checking if the value is 0
     >>> b.integer_validator("my_int", 0)
@@ -23,3 +52,23 @@ Checking if the value is < 0:
     >>> b.integer_validator("distance", -4)
     Traceback (most recent call last):
     ValueError: distance must be greater than 0
+
+Checking for no arguments to integer_validator:
+	  >>> b.integer_validator()
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Checking for only 1 argument to integer_validator:
+	  >>> b.integer_validator("integer")
+	  Traceback (most recent call last):
+          ...
+	  TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Checking for area failure:
+	  >>> b = BaseGeometry()
+	  >>> b.area()
+	  Traceback (most recent call last):
+	  ...
+	  Exception: area() is not implemented
+

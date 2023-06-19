@@ -120,3 +120,11 @@ class Rectangle(Base):
                     self.y = value
                 else:
                     raise ValueError("Invalid attribut: {key}")
+
+    def to_dictionary(self):
+            """Returns the dict representation of a rectagle"""
+            return {'id': self.id,
+                    'width': self.width,
+                    'height': self.height,
+                    'x': self.x,
+                    'y': self.y}

@@ -74,14 +74,15 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
-        """Printa a rectangle to stdout using #"""
+        """Prints a rectangle to stdout using #"""
         if self.__height == 0 or self.__width == 0:
             print("")
             return
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print("" * self.__x + "#" * self.__width)
+        [print("") for y in range(self.y)]
+        for h in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
+            [print("#", end="") for w in range(self.width)]
+            print("")
 
     def __str__(self):
         """Print a statement"""

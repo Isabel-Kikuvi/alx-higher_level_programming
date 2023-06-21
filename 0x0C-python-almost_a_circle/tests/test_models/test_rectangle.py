@@ -108,5 +108,19 @@ class test_Rectangle(unittest.TestCase):
         r = Rectangle(2, 10, 4, 5, 17)
         self.assertEqual(20, r.area())
 
+    def test_update_args(self):
+        """test for updated args"""
+        r = Rectangle(1, 2, 3, 4, 5)
+        r.update(6)
+        self.assertEqual(6, r.id)
+        r.update(6, 7)
+        self.assertEqual(7, r.width)
+        r.update(6, 7, 8)
+        self.assertEqual(8, r.height)
+        r.update(6, 7, 8, 9)
+        self.assertEqual(9, r.x)
+        r.update(6, 7, 8, 9, 10)
+        self.assertEqual(10, r.y)
+
 if __name__ == "__main__":
     unittest.main

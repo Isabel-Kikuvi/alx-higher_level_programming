@@ -18,6 +18,36 @@ class test_base(unittest.TestCase):
         self.assertEqual(2, b.id)
 
     def test_id_input(self):
+        """testing id input"""
         b = Base(89)
         self.assertEqual(89, b.id)
+
+    def test_to_json_string(self):
+        """testing json string"""
+        s = Square(1)
+        json_dict = s.to_dictionary()
+        json_string = Base.to_json_string([json_dict])
+        self.assertEqual(type(json_string), str)
+    
+    def test_to_json_isNone(self):
+        """testing json string is none"""
+        s = Square(5, 0, 0, 500)
+        json_dict = s.to_dictionary()
+        json_string = Base.to_json_string(None)
+        self.assertEqual(json_string, "[]")
+
+    def test_to_json_is_empty(self):
+        """testing json string with []"""
+        s = Square(5, 0, 0, 500)
+        json_dict = s.to_dictionary()
+        json_string = Base.to_json_string([])
+        self.assertEqual(json_string, "[]")
+    
+    def test_to_json_value(self):
+        """testing json string with value"""
+        s = Square(5, 0, 0, 500)
+        json_dict = s.to_dictionary()
+        json_string = Base.to_json_string(json_dict)
+        self.assertEqual(json.loads(json_string),
+                         {"id": 500, "size": 5, "x": 0, "y": 0})
 

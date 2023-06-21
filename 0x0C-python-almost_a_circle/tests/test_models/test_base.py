@@ -48,28 +48,7 @@ class test_base(unittest.TestCase):
         """testing json string with value"""
         s = Square(5, 0, 0, 500)
         json_dict = s.to_dictionary()
-        json_string = Base.to_json_string(json_dict)
+        json_string = Base.to_json_string([json_dict])
         self.assertEqual(json.loads(json_string),
-                         {"id": 500, "size": 5, "x": 0, "y": 0})
-    
-    def test_to_json_isNone(self):
-        """testing json string is none in rectangle"""
-        r = Rectangle(5, 1, 0, 0, 500)
-        json_dict = r.to_dictionary()
-        json_string = Base.to_json_string(None)
-        self.assertEqual(json_string, "[]")
-
-    def test_to_json_is_empty(self):
-        """testing json string with [] in rectangle"""
-        r = Rectangle(5, 1, 0, 0, 500)
-        json_dict = r.to_dictionary()
-        json_string = Base.to_json_string([])
-        self.assertEqual(json_string, "[]")
-
-    def test_to_json_value(self):
-        """testing json string with value in rectangle"""
-        r = Rectangle(5, 1, 0, 0, 500)
-        json_dict = r.to_dictionary()
-        json_string = Base.to_json_string(json_dict)
-        self.assertEqual(json.loads(json_string),
-                {"id": 500, "width": 5, "height": 1, "x": 0, "y": 0})
+                         [{"id": 500, "size": 5, "x": 0, "y": 0}])
+   

@@ -6,4 +6,4 @@ SELECT	c.id,
 FROM cities c
 JOIN states s
 ON c.id = s.id
-ORDER BY c.id
+ORDER BY c.id ASC

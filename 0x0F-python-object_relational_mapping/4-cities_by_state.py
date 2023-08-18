@@ -15,7 +15,7 @@ if __name__ == "__main__":
             db=argv[3]
             )
     curr = conn.cursor()
-    curr.execute("SELECT * FROM cities \
+    curr.execute("SELECT cities.id, cities.name, states.name FROM cities \
             JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
     myresult = curr.fetchall()
     for row in myresult:

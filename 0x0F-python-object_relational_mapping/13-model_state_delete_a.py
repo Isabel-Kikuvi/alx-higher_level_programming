@@ -21,7 +21,7 @@ if __name__ == "__main__":
     if states is not None:
         for state in states:
             session.delete(state)
-    
+
     session.commit()
 
     session.close()

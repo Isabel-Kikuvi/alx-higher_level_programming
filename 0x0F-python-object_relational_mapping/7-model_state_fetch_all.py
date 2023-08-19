@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+A script that lists all State objects
+"""
 
 from sys import argv
 from model_state import State, Base

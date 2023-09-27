@@ -10,7 +10,4 @@ fs.writeFile(file, content, 'utf-8', (error) => {
   }
 })
 
-
-
-
 ;
